@@ -37,7 +37,7 @@ The goal is to assess which indicator better predicts financial crises across di
 
   * `01_setup.R` — Environment setup and package installation
   * `02_clean.R` — Data merging and cleaning
-  * `03_construct_variables.R` — Treatment and control definitions
+  * `03_feature_engineering.R` — Treatment and control definitions
   * `04_analysis.R` — AUC comparison and models
   * `05_visualization.do` — Figures and plots
 
