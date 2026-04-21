@@ -83,32 +83,32 @@ Step 2 — Data Cleaning
 
 Step 3 — Feature Engineering
 
-- Basel Gap
-- **Computed using a one-sided HP filter**
-- **Captures long-term deviation from trend**
+- **Basel Gap**
+ - **Computed using a one-sided HP filter**
+ - **Captures long-term deviation from trend**
 
-- DRC (Differenced Credit)
-- **8-quarter change in credit-to-GDP**
-- **Captures short-term credit expansion**
+- **DRC (Differenced Credit)**
+ - **8-quarter change in credit-to-GDP**
+ - **Captures short-term credit expansion**
 
-- Crisis Variables
-- **Construct crisis periods by country**
-- **Generate:**
+- **Crisis Variables**
+ - **Construct crisis periods by country**
+ - **Generate:**
     - **target_short (2-year horizon)**
     - **target_long (5-year horizon)**
 
 Step 4 — Analysis
 
-- AUC (ROC) Comparison
-- **Evaluate predictive performance of:**
+- **AUC (ROC) Comparison**
+ - **Evaluate predictive performance of:**
     - **Basel Gap**
     - **DRC**
-- **Across:**
+ - **Across:**
     - **Short-term horizon (2 years)**
     - **Long-term horizon (5 years)**
 - **Logistic Regression (Robustness)**
-    - **Estimate probability of crisis: glm(..., family = binomial)**
-    - **Extract: Coefficients, p-values, AIC**
+ - **Estimate probability of crisis: glm(..., family = binomial)**
+ - **Extract: Coefficients, p-values, AIC**
 
 Step 5 — Visualization
 
@@ -131,10 +131,10 @@ After running the pipeline, you will obtain:
 ------
 
 📦 Required R Packages
-tidyverse
-readxl
-lubridate
-mFilter
-pROC
-RcppRoll
-ggplot2
+ * `tidyverse`
+ * `readxl`
+ * `lubridate`
+ * `mFilter`
+ * `pROC`
+ * `RcppRoll`
+ * `ggplot2`
