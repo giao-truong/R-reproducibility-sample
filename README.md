@@ -21,49 +21,26 @@ The goal is to assess which indicator better predicts financial crises across di
 
 ---
 
-## 📁 Repository Structure
-│
-├── code/
-│ ├── 01_setup.R # Load packages and define paths
-│ ├── 02_clean.R # Import and reshape raw data
-│ ├── 03_construct_indicators.R # Basel Gap, DRC, crisis variables
-│ ├── 04_analysis.R # AUC comparison and models
-│ └── 05_visualization.R # Figures and plots
-│
-├── data/
-│ ├── raw/
-│ │ └── data.xlsx # Raw dataset (credit-to-GDP)
-│ └── cleaned/ # (optional) cleaned datasets
-│
-├── output/
-│ ├── figures/ # Generated plots
-│ └── tables/ # Regression outputs
-│
-├── master.R # Runs full pipeline
-└── README.md
+## Repository Structure
+
+* `master.R` — Main script to run the full pipeline
+
+* `code/` — Modular scripts:
+
+  * `01_setup.R` — Environment setup and package installation
+  * `02_clean.R` — Data merging and cleaning
+  * `03_construct_variables.R` — Treatment and control definitions
+  * `04_analysis.R` — AUC comparison and models
+  * `05_visualization.do` — Figures and plots
+
+* `data/` — Data folders
+  * `raw` —  Raw dataset (credit-to-GDP)
+  * `cleaned` 
+
+* `output/` — Generated tables and figures
 
 ---
 
-## ⚙️ How to Run the Project
-
-### 1. Clone the repository
-
-```bash
-git clone https://github.com/YOUR-USERNAME/R-reproducibility-sample.git
-cd R-reproducibility-sample
-2. Open in R / RStudio
-
-Make sure your working directory is the project root.
-
-3. Install required packages
-
-source("code/01_setup.R")
-
-4. Run the full pipeline
-
-source("master.R")
-
----
 🔄 Workflow Description
 Step 1 — Setup
 Load libraries
@@ -85,6 +62,7 @@ Step 5 — Visualization
 Plot financial cycles
 Compare indicators visually
 Highlight crisis periods
+
 -----
 📊 Output
 
