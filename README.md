@@ -59,8 +59,12 @@ To reproduce the results:
 1. Open R and run:
 
 ```r
-source("master.R") 
+source("master.R")
+```
+2. Outputs will be saved in:
 
+   * `output/tables/`
+   * `output/figures/`
 
 ---
 
@@ -75,28 +79,43 @@ Step 2 — Data Cleaning
 
  - **Import Excel dataset**
  - **Convert wide → long format**
- - **Create time variables**
+ - **Construct time variables (year, quarter)**
 
 Step 3 — Feature Engineering
 
-- **Compute Basel Gap using one-sided HP filter**
-- **Compute DRC (8-quarter difference)**
-- **Define crisis periods and targets**
+- Basel Gap
+- **Computed using a one-sided HP filter**
+- **Captures long-term deviation from trend**
+
+- DRC (Differenced Credit)
+- **8-quarter change in credit-to-GDP**
+- **Captures short-term credit expansion**
+
+- Crisis Variables
+- **Construct crisis periods by country**
+- **Generate:**
+    - **target_short (2-year horizon)**
+    - **target_long (5-year horizon)**
 
 Step 4 — Analysis
 
-- **Compute AUC (ROC performance)**
-- **Compare predictive accuracy:**
-
-  Short-term (2 years)
-
-  Long-term (5 years)
+- AUC (ROC) Comparison
+- **Evaluate predictive performance of:**
+    - **Basel Gap**
+    - **DRC**
+- **Across:**
+    - **Short-term horizon (2 years)**
+    - **Long-term horizon (5 years)**
+- **Logistic Regression (Robustness)**
+    - **Estimate probability of crisis: glm(..., family = binomial)**
+    - **Extract: Coefficients, p-values, AIC**
 
 Step 5 — Visualization
 
-- **Plot financial cycles**
-- **Compare indicators visually**
-- **Highlight crisis periods**
+- **Financial cycle plots (credit vs trend)**
+- **Basel Gap vs DRC comparison**
+- **Crisis period shading**
+- **Cross-country comparison charts**
 
 -----
 ## 📊 Output
@@ -111,10 +130,11 @@ After running the pipeline, you will obtain:
 
 ------
 
-## 📚 Academic Context
-
-This project is inspired by:
-
-1. Basel III framework (credit gap methodology)
-2. Literature on financial cycle measurement
-3. Early warning systems for banking crises
+📦 Required R Packages
+tidyverse
+readxl
+lubridate
+mFilter
+pROC
+RcppRoll
+ggplot2
