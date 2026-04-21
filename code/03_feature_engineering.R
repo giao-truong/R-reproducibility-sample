@@ -1,5 +1,5 @@
 ### ----------------------------- ###
-### 03. Construct Variables      ###
+###  03. Feature Engineering      ###
 ### ----------------------------- ###
 
 source("code/01_setup.R")
