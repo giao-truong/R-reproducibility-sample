@@ -1,24 +1,47 @@
-# =========================================
+### ----------------------------- ###
+### 04. Empirical Analysis       ###
+### ----------------------------- ###
 
-# Descriptive Analysis
+source("code/01_setup.R")
 
-# =========================================
+df <- readRDS(file.path(root, "data/final_df.rds"))
 
-df <- read_csv(here("data", "cleaned", "panel_constructed.csv"))
+### AUC Comparison ###
+country_results <- df %>%
+  group_by(country) %>%
+  summarise(
+    auc_drc_short = as.numeric(auc(roc(target_short, drc, quiet = TRUE))),
+    auc_gap_short = as.numeric(auc(roc(target_short, basel_gap, quiet = TRUE))),
+    auc_drc_long  = as.numeric(auc(roc(target_long, drc, quiet = TRUE))),
+    auc_gap_long  = as.numeric(auc(roc(target_long, basel_gap, quiet = TRUE)))
+  )
 
-plot_gap <- function(df, country_name) {
-df %>%
-filter(country == country_name) %>%
-ggplot(aes(date, basel_gap)) +
-geom_line() +
-geom_hline(yintercept = 0, linetype = "dashed") +
-theme_minimal() +
-labs(title = paste("Basel Gap:", country_name))
+write.csv(country_results, file.path(output_tab, "auc_results.csv"), row.names = FALSE)
+
+### Logit robustness ###
+run_logit <- function(target, predictor, data) {
+  sub <- data[!is.na(data[[target]]) & !is.na(data[[predictor]]), ]
+  
+  if (length(unique(sub[[target]])) < 2) return(c(NA, NA))
+  
+  model <- glm(as.formula(paste(target, "~", predictor)),
+               family = binomial, data = sub)
+  
+  c(coef = coef(model)[predictor], aic = AIC(model))
 }
 
-countries <- unique(df$country)
+logit_results <- df %>%
+  group_by(country) %>%
+  do({
+    d2 <- run_logit("target_short", "drc", .)
+    g2 <- run_logit("target_short", "basel_gap", .)
+    
+    data.frame(
+      drc_coef = d2[1],
+      gap_coef = g2[1],
+      drc_aic  = d2[2],
+      gap_aic  = g2[2]
+    )
+  })
 
-for (c in countries) {
-g <- plot_gap(df, c)
-ggsave(here("output", "figures", paste0("gap_", c, ".png")), g)
-}
+write.csv(logit_results, file.path(output_tab, "logit_results.csv"), row.names = FALSE)
