@@ -4,7 +4,7 @@
 
 source("code/01_setup.R")
 
-df <- readRDS(file.path(root, "data/clean_df.rds"))
+df <- readRDS(file.path(root, "data/cleaned/clean_df.rds"))
 
 ### One-sided HP filter ###
 calculate_onesided_hp <- function(x, lambda = 400000) {
@@ -70,4 +70,4 @@ df <- df %>%
   ungroup()
 
 # Save
-saveRDS(df, file.path(root, "data/final_df.rds"))
+saveRDS(df, file.path(root, "data/cleaned/final_df.rds"))
