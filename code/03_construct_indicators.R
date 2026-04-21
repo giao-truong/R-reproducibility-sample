@@ -70,4 +70,4 @@ df <- df %>%
   ungroup()
 
 # Save
-saveRDS(df, file.path(root, "data/cleaned/final_df.rds"))
+saveRDS(df, file.path(root, "data/final_df.rds"))
