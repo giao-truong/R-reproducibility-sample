@@ -78,7 +78,7 @@ Step 5 — Visualization
 - **Highlight crisis periods**
 
 -----
-📊 Output
+## 📊 Output
 
 After running the pipeline, you will obtain:
 
