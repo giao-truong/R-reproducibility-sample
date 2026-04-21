@@ -38,22 +38,24 @@ The goal is to assess which indicator better predicts financial crises across di
   * `cleaned` 
 
 * `output/` — Generated tables and figures
+  * `figures` 
+  * `tables` 
 
 ---
 
 🔄 Workflow Description
 
-Step 1 — Setup
+*Step 1 — Setup
 
-Load libraries
+ *Load libraries
 
-Define reproducible file paths
+ *Define reproducible file paths
 
-Step 2 — Data Cleaning
+*Step 2 — Data Cleaning
 
-Import Excel dataset
+ *Import Excel dataset
 
-Convert wide → long format
+ *Convert wide → long format
 
 Create time variables
 
