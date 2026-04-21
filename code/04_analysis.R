@@ -4,7 +4,7 @@
 
 source("code/01_setup.R")
 
-df <- readRDS(file.path(root, "data/cleaned/final_df.rds"))
+df <- readRDS(file.path(root, "data/final_df.rds"))
 
 ### AUC Comparison ###
 country_results <- df %>%
