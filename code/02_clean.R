@@ -24,4 +24,4 @@ df <- data %>%
   arrange(country, date)
 
 # Save cleaned data
-saveRDS(df, file.path(root, "data/clean_df.rds"))
+saveRDS(df, file.path(root, "data/cleaned/clean_df.rds"))
