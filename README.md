@@ -130,7 +130,7 @@ After running the pipeline, you will obtain:
 
 ------
 
-📦 Required R Packages
+## 📦 Required R Packages
  * `tidyverse`
  * `readxl`
  * `lubridate`
