@@ -43,46 +43,39 @@ The goal is to assess which indicator better predicts financial crises across di
 
 ---
 
-🔄 Workflow Description
+## 🔄 Workflow Description
 
-*Step 1 — Setup
+Step 1 — Setup
 
- *Load libraries
+ - **Load libraries**
+ -**Define reproducible file paths**
 
- *Define reproducible file paths
+Step 2 — Data Cleaning
 
-*Step 2 — Data Cleaning
-
- *Import Excel dataset
-
- *Convert wide → long format
-
-Create time variables
+ -**Import Excel dataset**
+ -**Convert wide → long format**
+ -**Create time variables**
 
 Step 3 — Feature Engineering
 
-Compute Basel Gap using one-sided HP filter
-
-Compute DRC (8-quarter difference)
-
-Define crisis periods and targets
+-**Compute Basel Gap using one-sided HP filter**
+-**Compute DRC (8-quarter difference)**
+-**Define crisis periods and targets**
 
 Step 4 — Analysis
-Compute AUC (ROC performance)
 
-Compare predictive accuracy:
+-**Compute AUC (ROC performance)**
+-**Compare predictive accuracy:**
 
-Short-term (2 years)
+  Short-term (2 years)
 
-Long-term (5 years)
+  Long-term (5 years)
 
 Step 5 — Visualization
 
-Plot financial cycles
-
-Compare indicators visually
-
-Highlight crisis periods
+-**Plot financial cycles**
+-**Compare indicators visually**
+-**Highlight crisis periods**
 
 -----
 📊 Output
@@ -97,7 +90,7 @@ After running the pipeline, you will obtain:
 
 ------
 
-📚 Academic Context
+## 📚 Academic Context
 
 This project is inspired by:
 
