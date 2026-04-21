@@ -1,25 +1,30 @@
-# =========================================
+### ---------------------- ###
+### 01. Environment Setup ###
+### ---------------------- ###
 
-# Setup
+# Clear environment
+rm(list = ls())
 
-# =========================================
-
+# Load required packages
 packages <- c(
-"tidyverse", "readxl", "lubridate",
-"here", "fixest", "modelsummary",
-"ggplot2", "broom"
+  "readxl", "tidyverse", "lubridate",
+  "mFilter", "pROC", "RcppRoll", "ggplot2"
 )
 
-installed <- rownames(installed.packages())
+# Install missing packages
+installed <- packages %in% installed.packages()
+if (any(!installed)) install.packages(packages[!installed])
 
-for (p in packages) {
-if (!(p %in% installed)) install.packages(p)
-}
-
+# Load packages
 lapply(packages, library, character.only = TRUE)
 
-set.seed(12345)
+# Set project root automatically
+root <- getwd()
 
-dir.create(here("data", "cleaned"), recursive = TRUE, showWarnings = FALSE)
-dir.create(here("output", "tables"), recursive = TRUE, showWarnings = FALSE)
-dir.create(here("output", "figures"), recursive = TRUE, showWarnings = FALSE)
+# Define paths
+data_path   <- file.path(root, "data/raw/data.xlsx")
+output_fig  <- file.path(root, "output/figures")
+output_tab  <- file.path(root, "output/tables")
+
+dir.create(output_fig, recursive = TRUE, showWarnings = FALSE)
+dir.create(output_tab, recursive = TRUE, showWarnings = FALSE)
