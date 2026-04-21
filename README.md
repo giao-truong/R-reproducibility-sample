@@ -12,6 +12,14 @@ We compare two key indicators:
 The goal is to assess which indicator better predicts financial crises across different time horizons.
 
 ---
+## 🎯 Research Objectives
+
+1. Evaluate the predictive power of Basel Gap vs DRC
+2. Compare performance across countries
+3. Distinguish short-term vs long-term predictive ability
+4. Assess robustness using statistical models
+
+---
 
 ## 📊 Research Questions
 
@@ -40,6 +48,19 @@ The goal is to assess which indicator better predicts financial crises across di
 * `output/` — Generated tables and figures
   * `figures` 
   * `tables` 
+
+
+---
+
+## ⚙️ Reproducibility
+
+To reproduce the results:
+
+1. Open R and run:
+
+```r
+source("master.R") 
+
 
 ---
 
