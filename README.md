@@ -7,7 +7,7 @@ This project analyzes financial cycle dynamics and evaluates the predictive powe
 We compare two key indicators:
 
 - **Basel Credit-to-GDP Gap** (long-term structural imbalance)
-- **DRC (Differenced Credit)** (short-term credit growth)
+- **DRC (Differenced Relative Credit)** (short-term credit growth)
 
 The goal is to assess which indicator better predicts financial crises across different time horizons.
 
@@ -84,31 +84,31 @@ Step 2 — Data Cleaning
 Step 3 — Feature Engineering
 
 - **Basel Gap**
- - **Computed using a one-sided HP filter**
- - **Captures long-term deviation from trend**
+    - **Computed using a one-sided HP filter**
+    - **Captures long-term deviation from trend**
 
-- **DRC (Differenced Credit)**
- - **8-quarter change in credit-to-GDP**
- - **Captures short-term credit expansion**
+- **DRC (Differenced Relative Credit)**
+    - **8-quarter change in credit-to-GDP**
+    - **Captures short-term credit expansion**
 
 - **Crisis Variables**
- - **Construct crisis periods by country**
- - **Generate:**
-    - **target_short (2-year horizon)**
-    - **target_long (5-year horizon)**
+   - **Construct crisis periods by country**
+   - **Generate:**
+     - **target_short (2-year horizon)**
+     - **target_long (5-year horizon)**
 
 Step 4 — Analysis
 
 - **AUC (ROC) Comparison**
- - **Evaluate predictive performance of:**
-    - **Basel Gap**
-    - **DRC**
- - **Across:**
-    - **Short-term horizon (2 years)**
-    - **Long-term horizon (5 years)**
+  - **Evaluate predictive performance of:**
+     - **Basel Gap**
+     - **DRC**
+  - **Across:**
+     - **Short-term horizon (2 years)**
+     - **Long-term horizon (5 years)**
 - **Logistic Regression (Robustness)**
- - **Estimate probability of crisis: glm(..., family = binomial)**
- - **Extract: Coefficients, p-values, AIC**
+  - **Estimate probability of crisis: glm(..., family = binomial)**
+  - **Extract: Coefficients, p-values, AIC**
 
 Step 5 — Visualization
 
